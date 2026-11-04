@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "windows" -}}
+$nvimConfig = Join-Path $env:USERPROFILE '.config\nvim'
+$localAppDataNvim = Join-Path $env:LOCALAPPDATA 'nvim'
+
+if (Test-Path $nvimConfig) {
+    if (-not (Test-Path $localAppDataNvim)) {
+        New-Item -ItemType Junction -Path $localAppDataNvim -Target $nvimConfig | Out-Null
+        Write-Host "Created Junction: $localAppDataNvim -> $nvimConfig"
+    }
+}
+{{ end -}}
+

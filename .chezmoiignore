@@ -1,0 +1,37 @@
+# Version control and backups
+.git
+.git/**
+**/*.bak
+**/*.backup
+**/*~
+**/.DS_Store
+
+# Neovim state
+**/.config/nvim/lazy-lock.json
+**/AppData/Local/nvim/lazy-lock.json
+**/.config/nvim/.neoconf.json
+**/.config/nvim/.gitignore
+
+# Fish shell runtime state and temp files
+**/.config/fish/fish_variables*
+**/.config/fish/fishd.tmp.*
+**/.config/fish/*.bak
+**/.config/fish/fish_plugins.bak
+
+# Tmux plugins runtime state (installed via TPM)
+**/.config/tmux/plugins/**
+**/.config/tmux/.claude/**
+**/.config/tmux/*.txt
+
+# OS-conditional file distribution
+{{ if ne .chezmoi.os "windows" }}
+Documents/**
+AppData/**
+.config/powershell/**
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+.config/fish/**
+.config/tmux/**
+{{ end }}
+
