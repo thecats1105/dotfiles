@@ -31,7 +31,11 @@ EOF
 chmod 600 ~/.config/chezmoi/key.txt
 
 # 3. Initialize and apply dotfiles
-chezmoi init --apply https://github.com/thecats1105/dotfiles.git
+# (ghq를 사용하는 경우: ghq get 후 --source 지정)
+ghq get https://github.com/thecats1105/dotfiles.git
+chezmoi init --source ~/ghq/github.com/thecats1105/dotfiles --apply
+# 또는 기본 위치 사용 시:
+# chezmoi init --apply https://github.com/thecats1105/dotfiles.git
 ```
 
 ### 2. Windows Setup
@@ -50,7 +54,11 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\chezmoi" | O
 Set-Content -Path "$env:USERPROFILE\.config\chezmoi\key.txt" -Value "<YOUR_AGE_PRIVATE_KEY>"
 
 # 3. Initialize and apply dotfiles
-chezmoi init --apply https://github.com/thecats1105/dotfiles.git
+# (ghq를 사용하는 경우: ghq get 후 --source 지정)
+ghq get https://github.com/thecats1105/dotfiles.git
+chezmoi init --source ~/ghq/github.com/thecats1105/dotfiles --apply
+# 또는 기본 위치 사용 시:
+# chezmoi init --apply https://github.com/thecats1105/dotfiles.git
 ```
 
 > **Note (Neovim on Windows):**
@@ -125,5 +133,5 @@ chezmoi edit --apply ~/.config/tmux/tmux.conf
 | `chezmoi status` | 변경된 파일 상태 목록 확인                                 |
 | `chezmoi apply`  | chezmoi 소스의 변경사항을 홈 디렉토리에 반영               |
 | `chezmoi update` | git pull + chezmoi apply를 한 번에 실행 (최신 상태 동기화) |
-| `chezmoi cd`     | chezmoi 소스 디렉토리(`~/.local/share/chezmoi`)로 셸 진입  |
+| `chezmoi cd`     | chezmoi 소스 디렉토리(`sourceDir`)로 셸 진입              |
 | `chezmoi verify` | 홈 디렉토리가 chezmoi 타겟과 일치하는지 검증               |
