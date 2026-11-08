@@ -8,7 +8,7 @@ Cross-platform dotfiles for **WSL (Ubuntu / Linux)** and **Windows**, managed by
 - **Starship**: Cross-platform prompt styling (inline on Windows, dual-line with clock on WSL)
 - **Neovim**: Shared LazyVim configuration across both platforms (symlinked/junctioned to AppData on Windows)
 - **Fish Shell**: WSL / Linux shell setup, functions, completions, and age-encrypted secrets
-- **Tmux**: Linux terminal multiplexer with custom statusline and keybindings
+- **Tmux**: Linux terminal multiplexer with custom statusline, popup agent manager (tmux-agent-hatch), and keybindings
 - **PowerShell**: Windows PowerShell profile, scripts, and modules
 
 ---
